@@ -52,5 +52,5 @@ fixtures:
 	docker compose exec php php bin/console doctrine:fixtures:load
 
 init:
-	docker compose run --rm php composer create-project symfony/skeleton .
+	docker compose run --rm php sh -lc "composer create-project symfony/skeleton /tmp/starter && cp -a /tmp/starter/. /var/www/html/ && rm -rf /tmp/starter"
 	docker compose run --rm php composer require webapp
